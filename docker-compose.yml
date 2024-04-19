@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  clientes_db:
+    image: postgres:14.1-alpine
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=clientes
+    ports:
+      - '5432:5432'
+    volumes:
+      - clientes_db:/var/lib/postgresql/data
+volumes:
+  clientes_db:
+    driver: local

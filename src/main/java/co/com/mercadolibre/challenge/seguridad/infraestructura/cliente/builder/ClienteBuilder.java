@@ -42,30 +42,16 @@ public final class ClienteBuilder {
         return clienteEntity;
     }
 
-    public static Cliente convertirADominio(ClienteEntity clienteEntity) {
-        Cliente cliente = null;
-        if (clienteEntity != null) {
-            cliente = new Cliente(clienteEntity.getIdCliente()
-                    , clienteEntity.getFecAlta()
-                    , clienteEntity.getUserName(), clienteEntity.getCodigoZip()
-                    , clienteEntity.getCreditCardNum(), clienteEntity.getCuentaNumero(), clienteEntity.getDireccion()
-                    , clienteEntity.getGeoLatitud(), clienteEntity.getGeoLongitud()
-                    , clienteEntity.getColorFavorito(), clienteEntity.getFotoDni()
-                    , clienteEntity.getIp(), clienteEntity.getAuto(), clienteEntity.getAutoModelo()
-                    , clienteEntity.getAutoTipo(), clienteEntity.getAutoColor()
-                    , clienteEntity.getCantidadComprasRealizadas(), clienteEntity.getAvatar(),
-                    clienteEntity.getFecBirthday(), clienteEntity.getId());
-        }
-        return cliente;
-    }
-
-    public static DtoCliente convertirADominioDto(ClienteEntity clienteEntity) {
+    public static DtoCliente convertirADominioDto(
+            ClienteEntity clienteEntity, String numeroTarjetaCredito, String nombreUsuario, String geoLatitud
+            , String geoLongitud, String numeroCuenta
+    ) {
         DtoCliente dtoCliente = null;
         if (clienteEntity != null) {
             dtoCliente = new DtoCliente(clienteEntity.getIdCliente(), clienteEntity.getFecAlta()
-                    , clienteEntity.getUserName(), clienteEntity.getCodigoZip()
-                    , clienteEntity.getCreditCardNum(), clienteEntity.getCuentaNumero(), clienteEntity.getDireccion()
-                    , clienteEntity.getGeoLatitud(), clienteEntity.getGeoLongitud()
+                    , nombreUsuario, clienteEntity.getCodigoZip()
+                    , numeroTarjetaCredito, numeroCuenta, clienteEntity.getDireccion()
+                    , geoLatitud, geoLongitud
                     , clienteEntity.getColorFavorito(), clienteEntity.getFotoDni()
                     , clienteEntity.getIp(), clienteEntity.getAuto(), clienteEntity.getAutoModelo()
                     , clienteEntity.getAutoTipo(), clienteEntity.getAutoColor()

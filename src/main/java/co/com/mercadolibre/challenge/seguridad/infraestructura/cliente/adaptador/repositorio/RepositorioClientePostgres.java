@@ -12,5 +12,5 @@ import java.util.List;
  */
 @Repository
 public interface RepositorioClientePostgres extends JpaRepository<ClienteEntity, Long> {
-    List<ClienteEntity> findAllByOrderByUserName();
+    List<ClienteEntity> findAllByOrderByIdCliente();
 }

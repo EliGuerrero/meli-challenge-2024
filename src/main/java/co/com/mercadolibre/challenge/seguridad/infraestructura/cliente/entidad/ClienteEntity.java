@@ -25,8 +25,6 @@ public class ClienteEntity {
     private String codigoZip;
     @Column(name = "cdcredit_card_num", nullable = false)
     private String creditCardNum;
-    @Column(name = "cdcredit_card_ccv", nullable = false)
-    private String creditCardCcv;
     @Column(name = "cdcuenta_numero", nullable = false)
     private String cuentaNumero;
     @Column(name = "cddireccion")

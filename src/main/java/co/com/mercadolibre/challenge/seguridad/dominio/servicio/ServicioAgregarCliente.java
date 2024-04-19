@@ -2,6 +2,7 @@ package co.com.mercadolibre.challenge.seguridad.dominio.servicio;
 
 import co.com.mercadolibre.challenge.seguridad.dominio.modelo.entidad.Cliente;
 import co.com.mercadolibre.challenge.seguridad.dominio.puerto.repositorio.RepositorioCliente;
+import co.com.mercadolibre.challenge.seguridad.infraestructura.seguridad.encrypt.EncryptionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,8 +14,22 @@ import org.springframework.stereotype.Service;
 public class ServicioAgregarCliente {
     @Autowired
     private RepositorioCliente repositorioCliente;
+    @Autowired
+    private EncryptionService encryptionService;
 
     public Long ejecutar(Cliente cliente) {
-        return repositorioCliente.agregar(cliente);
+        Cliente clienteSeguro = manejadorDedatosSensibles(cliente);
+        return repositorioCliente.agregar(clienteSeguro);
+    }
+
+    public String encriptador(String valor) {
+        return encryptionService.encrypt(valor);
+    }
+
+    public Cliente manejadorDedatosSensibles(Cliente cliente) {
+        if (!cliente.getCreditCardNum().isEmpty()) {
+            cliente.setCreditCardNum(encriptador(cliente.getCreditCardNum()));
+        }
+        return cliente;
     }
 }

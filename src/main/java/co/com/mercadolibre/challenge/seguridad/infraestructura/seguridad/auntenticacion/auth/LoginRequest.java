@@ -1,4 +1,4 @@
-package co.com.mercadolibre.challenge.seguridad.infraestructura.seguridad.auth;
+package co.com.mercadolibre.challenge.seguridad.infraestructura.seguridad.auntenticacion.auth;
 
 
 import lombok.AllArgsConstructor;

@@ -1,4 +1,4 @@
-package co.com.mercadolibre.challenge.seguridad.infraestructura.seguridad.auth;
+package co.com.mercadolibre.challenge.seguridad.infraestructura.seguridad.auntenticacion.auth;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,6 +13,10 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class AuthResponse {
-    String token;
+public class RegisterRequest {
+    String username;
+    String password;
+    String firstname;
+    String lastname;
+    String country;
 }

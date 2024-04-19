@@ -1,4 +1,4 @@
-package co.com.mercadolibre.challenge.seguridad.infraestructura.seguridad.usuario;
+package co.com.mercadolibre.challenge.seguridad.infraestructura.seguridad.auntenticacion.usuario;
 
 import java.util.Collection;
 import java.util.List;
@@ -23,7 +23,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "tseg_usuario", uniqueConstraints = {@UniqueConstraint(columnNames = {"username"})})
+@Table(name = "tseg_usuarios", uniqueConstraints = {@UniqueConstraint(columnNames = {"username"})})
 public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

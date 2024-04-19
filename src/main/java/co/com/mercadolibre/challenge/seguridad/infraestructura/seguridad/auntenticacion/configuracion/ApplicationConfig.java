@@ -1,6 +1,6 @@
-package co.com.mercadolibre.challenge.seguridad.infraestructura.seguridad.configuracion;
+package co.com.mercadolibre.challenge.seguridad.infraestructura.seguridad.auntenticacion.configuracion;
 
-import co.com.mercadolibre.challenge.seguridad.infraestructura.seguridad.usuario.UserRepository;
+import co.com.mercadolibre.challenge.seguridad.infraestructura.seguridad.auntenticacion.usuario.UserRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;

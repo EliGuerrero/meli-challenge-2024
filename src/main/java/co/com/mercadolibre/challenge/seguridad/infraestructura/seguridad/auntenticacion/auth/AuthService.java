@@ -1,9 +1,9 @@
-package co.com.mercadolibre.challenge.seguridad.infraestructura.seguridad.auth;
+package co.com.mercadolibre.challenge.seguridad.infraestructura.seguridad.auntenticacion.auth;
 
-import co.com.mercadolibre.challenge.seguridad.infraestructura.seguridad.jwt.JwtService;
-import co.com.mercadolibre.challenge.seguridad.infraestructura.seguridad.usuario.Role;
-import co.com.mercadolibre.challenge.seguridad.infraestructura.seguridad.usuario.User;
-import co.com.mercadolibre.challenge.seguridad.infraestructura.seguridad.usuario.UserRepository;
+import co.com.mercadolibre.challenge.seguridad.infraestructura.seguridad.auntenticacion.jwt.JwtService;
+import co.com.mercadolibre.challenge.seguridad.infraestructura.seguridad.auntenticacion.usuario.Role;
+import co.com.mercadolibre.challenge.seguridad.infraestructura.seguridad.auntenticacion.usuario.User;
+import co.com.mercadolibre.challenge.seguridad.infraestructura.seguridad.auntenticacion.usuario.UserRepository;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;

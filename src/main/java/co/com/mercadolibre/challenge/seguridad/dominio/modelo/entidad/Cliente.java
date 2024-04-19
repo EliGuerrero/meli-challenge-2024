@@ -2,6 +2,7 @@ package co.com.mercadolibre.challenge.seguridad.dominio.modelo.entidad;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
@@ -11,13 +12,13 @@ import lombok.Setter;
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
 public class Cliente {
     private Long idCliente;
     private String fecAlta;
     private String userName;
     private String codigoZip;
     private String creditCardNum;
-    private String creditCardCcv;
     private String cuentaNumero;
     private String direccion;
     private String geoLatitud;

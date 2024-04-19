@@ -1,6 +1,6 @@
-package co.com.mercadolibre.challenge.seguridad.infraestructura.seguridad.configuracion;
+package co.com.mercadolibre.challenge.seguridad.infraestructura.seguridad.auntenticacion.configuracion;
 
-import co.com.mercadolibre.challenge.seguridad.infraestructura.seguridad.jwt.JwtAuthenticationFilter;
+import co.com.mercadolibre.challenge.seguridad.infraestructura.seguridad.auntenticacion.jwt.JwtAuthenticationFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;

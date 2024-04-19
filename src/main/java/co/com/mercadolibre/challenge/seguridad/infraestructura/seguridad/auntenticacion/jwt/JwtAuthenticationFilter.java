@@ -1,4 +1,4 @@
-package co.com.mercadolibre.challenge.seguridad.infraestructura.seguridad.jwt;
+package co.com.mercadolibre.challenge.seguridad.infraestructura.seguridad.auntenticacion.jwt;
 
 import java.io.IOException;
 

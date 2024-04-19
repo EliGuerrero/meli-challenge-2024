@@ -1,4 +1,4 @@
-package co.com.mercadolibre.challenge.seguridad.infraestructura.seguridad.usuario;
+package co.com.mercadolibre.challenge.seguridad.infraestructura.seguridad.auntenticacion.usuario;
 
 import java.util.Optional;
 

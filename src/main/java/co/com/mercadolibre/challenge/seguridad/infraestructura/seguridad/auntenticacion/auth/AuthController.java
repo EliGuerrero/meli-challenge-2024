@@ -1,4 +1,4 @@
-package co.com.mercadolibre.challenge.seguridad.infraestructura.seguridad.auth;
+package co.com.mercadolibre.challenge.seguridad.infraestructura.seguridad.auntenticacion.auth;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

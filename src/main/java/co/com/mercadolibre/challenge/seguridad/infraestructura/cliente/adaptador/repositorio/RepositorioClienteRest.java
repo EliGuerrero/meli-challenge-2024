@@ -9,6 +9,10 @@ import org.springframework.web.client.RestTemplate;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * @author Eliana Katherine Guerrero Guerrero - elikateh@gmail.com
+ * @since 16/04/2024
+ */
 @Service
 public class RepositorioClienteRest {
 

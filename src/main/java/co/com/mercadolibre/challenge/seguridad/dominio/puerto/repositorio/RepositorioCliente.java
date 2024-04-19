@@ -1,6 +1,5 @@
 package co.com.mercadolibre.challenge.seguridad.dominio.puerto.repositorio;
 
-
 import co.com.mercadolibre.challenge.seguridad.dominio.modelo.entidad.Cliente;
 
 /**

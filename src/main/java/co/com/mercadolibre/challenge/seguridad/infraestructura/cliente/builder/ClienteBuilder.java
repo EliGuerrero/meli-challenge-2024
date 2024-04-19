@@ -23,7 +23,6 @@ public final class ClienteBuilder {
             clienteEntity.setUserName(cliente.getUserName());
             clienteEntity.setCodigoZip(cliente.getCodigoZip());
             clienteEntity.setCreditCardNum(cliente.getCreditCardNum());
-            clienteEntity.setCreditCardCcv(cliente.getCreditCardCcv());
             clienteEntity.setCuentaNumero(cliente.getCuentaNumero());
             clienteEntity.setDireccion(cliente.getDireccion());
             clienteEntity.setGeoLatitud(cliente.getGeoLatitud());
@@ -49,8 +48,7 @@ public final class ClienteBuilder {
             cliente = new Cliente(clienteEntity.getIdCliente()
                     , clienteEntity.getFecAlta()
                     , clienteEntity.getUserName(), clienteEntity.getCodigoZip()
-                    , clienteEntity.getCreditCardNum(), clienteEntity.getCreditCardCcv()
-                    , clienteEntity.getCuentaNumero(), clienteEntity.getDireccion()
+                    , clienteEntity.getCreditCardNum(), clienteEntity.getCuentaNumero(), clienteEntity.getDireccion()
                     , clienteEntity.getGeoLatitud(), clienteEntity.getGeoLongitud()
                     , clienteEntity.getColorFavorito(), clienteEntity.getFotoDni()
                     , clienteEntity.getIp(), clienteEntity.getAuto(), clienteEntity.getAutoModelo()
@@ -66,8 +64,7 @@ public final class ClienteBuilder {
         if (clienteEntity != null) {
             dtoCliente = new DtoCliente(clienteEntity.getIdCliente(), clienteEntity.getFecAlta()
                     , clienteEntity.getUserName(), clienteEntity.getCodigoZip()
-                    , clienteEntity.getCreditCardNum(), clienteEntity.getCreditCardCcv()
-                    , clienteEntity.getCuentaNumero(), clienteEntity.getDireccion()
+                    , clienteEntity.getCreditCardNum(), clienteEntity.getCuentaNumero(), clienteEntity.getDireccion()
                     , clienteEntity.getGeoLatitud(), clienteEntity.getGeoLongitud()
                     , clienteEntity.getColorFavorito(), clienteEntity.getFotoDni()
                     , clienteEntity.getIp(), clienteEntity.getAuto(), clienteEntity.getAutoModelo()

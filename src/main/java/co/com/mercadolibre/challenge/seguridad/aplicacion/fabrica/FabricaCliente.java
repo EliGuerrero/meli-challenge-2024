@@ -13,8 +13,7 @@ public class FabricaCliente {
     public Cliente crearCliente(ComandoCliente comandoCliente) {
         return new Cliente(comandoCliente.getIdCliente(), comandoCliente.getFecAlta()
                 , comandoCliente.getUserName(), comandoCliente.getCodigoZip()
-                , comandoCliente.getCreditCardNum(), comandoCliente.getCreditCardCcv()
-                , comandoCliente.getCuentaNumero(), comandoCliente.getDireccion()
+                , comandoCliente.getCreditCardNum(), comandoCliente.getCuentaNumero(), comandoCliente.getDireccion()
                 , comandoCliente.getGeoLatitud(), comandoCliente.getGeoLongitud()
                 , comandoCliente.getColorFavorito(), comandoCliente.getFotoDni()
                 , comandoCliente.getIp(), comandoCliente.getAuto(), comandoCliente.getAutoModelo()

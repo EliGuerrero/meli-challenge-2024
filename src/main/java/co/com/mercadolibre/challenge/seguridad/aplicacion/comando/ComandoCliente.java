@@ -19,7 +19,6 @@ public class ComandoCliente {
     private String userName;
     private String codigoZip;
     private String creditCardNum;
-    private String creditCardCcv;
     private String cuentaNumero;
     private String direccion;
     private String geoLatitud;

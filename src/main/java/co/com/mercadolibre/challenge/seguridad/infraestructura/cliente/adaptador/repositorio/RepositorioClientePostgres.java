@@ -9,7 +9,6 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface RepositorioClientePostgres extends JpaRepository<ClienteEntity, Long>
-{
+public interface RepositorioClientePostgres extends JpaRepository<ClienteEntity, Long> {
     Optional<ClienteEntity> findById(Long id);
 }

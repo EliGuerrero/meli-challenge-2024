@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
 
 import java.time.Duration;
+
 /**
  * @author Eliana Katherine Guerrero Guerrero - elikateh@gmail.com
  * @since 17/04/2024

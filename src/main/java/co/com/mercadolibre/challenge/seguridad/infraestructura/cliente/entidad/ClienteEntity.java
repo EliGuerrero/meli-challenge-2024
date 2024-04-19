@@ -3,6 +3,7 @@ package co.com.mercadolibre.challenge.seguridad.infraestructura.cliente.entidad;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+
 /**
  * @author Eliana Katherine Guerrero Guerrero - elikateh@gmail.com
  * @since 16/04/2024

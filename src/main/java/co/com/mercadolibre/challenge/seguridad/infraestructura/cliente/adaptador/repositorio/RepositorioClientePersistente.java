@@ -12,8 +12,7 @@ import org.springframework.stereotype.Service;
  * @since 16/04/2024
  */
 @Service
-public class RepositorioClientePersistente implements RepositorioCliente
-{
+public class RepositorioClientePersistente implements RepositorioCliente {
     @Autowired
     private RepositorioClientePostgres repositorioClientePostgres;
 

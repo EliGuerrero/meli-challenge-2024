@@ -6,6 +6,7 @@ import co.com.mercadolibre.challenge.seguridad.infraestructura.cliente.adaptador
 import co.com.mercadolibre.challenge.seguridad.infraestructura.cliente.builder.ClienteBuilder;
 import co.com.mercadolibre.challenge.seguridad.dominio.servicio.seguridad.ServicioEncriptacion;
 import co.com.mercadolibre.challenge.seguridad.dominio.servicio.seguridad.ServicioEnmascararDatos;
+import co.com.mercadolibre.challenge.seguridad.infraestructura.cliente.builder.TarjetaBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -31,11 +32,17 @@ public class DaoClientePostgres implements DaoCliente {
                 .map(cliente ->
                         ClienteBuilder.convertirADominioDto(
                                 cliente,
-                                servicioEnmascararDatos.enmascaraValor(servicioEncriptacion.desencriptarValor(cliente.getCreditCardNum())),
                                 servicioEncriptacion.desencriptarValor(cliente.getUserName()),
-                                servicioEncriptacion.desencriptarValor(cliente.getGeoLatitud()),
-                                servicioEncriptacion.desencriptarValor(cliente.getGeoLongitud()),
-                                servicioEnmascararDatos.enmascaraValor(servicioEncriptacion.desencriptarValor(cliente.getCuentaNumero()))
+                                cliente.getTarjetaEntities().stream().map(
+                                        tarjetaEntity ->
+                                                TarjetaBuilder.convertirADto(
+                                                        tarjetaEntity,
+                                                        servicioEncriptacion.desencriptarValor(tarjetaEntity.getGeoLatitud()),
+                                                        servicioEncriptacion.desencriptarValor(tarjetaEntity.getGeoLongitud()),
+                                                        servicioEnmascararDatos.enmascaraValor(servicioEncriptacion.desencriptarValor(tarjetaEntity.getCuentaNumero())),
+                                                        servicioEnmascararDatos.enmascaraValor(servicioEncriptacion.desencriptarValor(tarjetaEntity.getCreditCardNum()))
+                                                )
+                                ).collect(Collectors.toList())
                         )
                 ).collect(Collectors.toList());
     }

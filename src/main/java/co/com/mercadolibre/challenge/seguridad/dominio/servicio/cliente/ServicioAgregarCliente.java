@@ -38,8 +38,24 @@ public class ServicioAgregarCliente {
         return cliente;
     }
 
+    public Cliente validadorDireccion(Cliente cliente) {
+        if (!cliente.getDireccion().isEmpty()) {
+            cliente.setDireccion(encriptador(cliente.getDireccion()));
+        }
+        return cliente;
+    }
+
+    public Cliente validadorFotoDni(Cliente cliente) {
+        if (!cliente.getFotoDni().isEmpty()) {
+            cliente.setFotoDni(encriptador(cliente.getFotoDni()));
+        }
+        return cliente;
+    }
+
     public Cliente manejadorDedatosSensiblesCliente(Cliente cliente) {
         validadorUserName(cliente);
+        validadorDireccion(cliente);
+        validadorFotoDni(cliente);
         return cliente;
     }
 
@@ -71,11 +87,35 @@ public class ServicioAgregarCliente {
         return tarjeta;
     }
 
+    public Tarjeta validadorCodigoZip(Tarjeta tarjeta) {
+        if (!tarjeta.getCodigoZip().isEmpty()) {
+            tarjeta.setCodigoZip(encriptador(tarjeta.getCodigoZip()));
+        }
+        return tarjeta;
+    }
+
+    public Tarjeta validadorFecAlta(Tarjeta tarjeta) {
+        if (!tarjeta.getFecAlta().isEmpty()) {
+            tarjeta.setFecAlta(encriptador(tarjeta.getFecAlta()));
+        }
+        return tarjeta;
+    }
+
+    public Tarjeta validadorIp(Tarjeta tarjeta) {
+        if (!tarjeta.getIp().isEmpty()) {
+            tarjeta.setIp(encriptador(tarjeta.getIp()));
+        }
+        return tarjeta;
+    }
+
     public Tarjeta manejadorDedatosSensiblesTarjeta(Tarjeta tarjeta) {
         validadorCreditCardNum(tarjeta);
         validadorCuentaNumero(tarjeta);
         validadorGeoLatitud(tarjeta);
+        validadorCodigoZip(tarjeta);
         validadorGeoLongitud(tarjeta);
+        validadorFecAlta(tarjeta);
+        validadorIp(tarjeta);
         return tarjeta;
     }
 }

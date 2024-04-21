@@ -1,4 +1,4 @@
-package co.com.mercadolibre.challenge.seguridad.aplicacion.manejador.cliente;
+package co.com.mercadolibre.challenge.seguridad.aplicacion.manejador;
 
 import co.com.mercadolibre.challenge.seguridad.aplicacion.comando.ComandoCliente;
 import co.com.mercadolibre.challenge.seguridad.aplicacion.fabrica.FabricaCliente;

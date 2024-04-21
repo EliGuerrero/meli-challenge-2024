@@ -11,15 +11,15 @@ import java.util.List;
  * @since 19/04/2024
  */
 @Component
-public class ConsultaListarClientes {
+public class ConsultaListarClientesParaUsuarioTipoA {
 
     private final DaoCliente daoCliente;
 
-    public ConsultaListarClientes(DaoCliente daoCliente) {
+    public ConsultaListarClientesParaUsuarioTipoA(DaoCliente daoCliente) {
         this.daoCliente = daoCliente;
     }
 
     public List<DtoCliente> ejecutar() {
-        return daoCliente.listarClientes();
+        return daoCliente.listarClientesParaUsuarioTipoA();
     }
 }

@@ -15,12 +15,12 @@ import java.util.List;
  */
 @Service
 public class RepositorioClienteRest {
-
+    private static final String URL = "https://62433a7fd126926d0c5d296b.mockapi.io/api/v1/usuarios";
     @Autowired
     private RestTemplate cliente;
 
     public List<ComandoCliente> consumirEndpoint() {
-        ResponseEntity<ComandoCliente[]> response = cliente.getForEntity("https://62433a7fd126926d0c5d296b.mockapi.io/api/v1/usuarios"
+        ResponseEntity<ComandoCliente[]> response = cliente.getForEntity(URL
                 , ComandoCliente[].class);
         return Arrays.asList(response.getBody());
     }

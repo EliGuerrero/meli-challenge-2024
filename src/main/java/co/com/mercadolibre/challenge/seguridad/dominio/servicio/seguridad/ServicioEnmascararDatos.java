@@ -8,14 +8,18 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class ServicioEnmascararDatos {
+
+    private static final int CANTIDAD_DE_DIGITOS_A_MOSTRAR = 4;
+    private static final String VALOR_ENMASCARA = "*";
+
     public String enmascaraValor(String valor) {
-        if (valor == null || valor.length() < 4) {
+        if (valor == null || valor.length() < CANTIDAD_DE_DIGITOS_A_MOSTRAR) {
             return valor;
         }
 
         int length = valor.length();
-        String parteEnmascarada = "*".repeat(length - 4);
+        String parteEnmascarada = VALOR_ENMASCARA.repeat(length - CANTIDAD_DE_DIGITOS_A_MOSTRAR);
 
-        return parteEnmascarada + valor.substring(length - 4);
+        return parteEnmascarada + valor.substring(length - CANTIDAD_DE_DIGITOS_A_MOSTRAR);
     }
 }

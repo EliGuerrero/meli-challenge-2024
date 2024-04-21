@@ -7,6 +7,16 @@ plugins {
 group = 'co.com.mercadolibre.challenge'
 version = '0.0.1-SNAPSHOT'
 
+jar {
+	manifest {
+		attributes(
+				'Implementation-Title': 'Seguridad Meli',
+				'Implementation-Version': version,
+				'Main-Class': 'co.com.mercadolibre.challenge.seguridad.SeguridadApplication'
+		)
+	}
+}
+
 java {
 	sourceCompatibility = '17'
 }
@@ -35,7 +45,12 @@ dependencies {
 	implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
 	implementation 'io.jsonwebtoken:jjwt-impl:0.11.5'
 	implementation 'io.jsonwebtoken:jjwt-jackson:0.11.5'
+
+	implementation 'org.slf4j:slf4j-api:2.0.13'
+//	implementation 'org.slf4j:slf4j-simple:2.0.13'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.mockito:mockito-core:5.11.0'
+	testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.10.2'
 }
 
 tasks.named('test') {

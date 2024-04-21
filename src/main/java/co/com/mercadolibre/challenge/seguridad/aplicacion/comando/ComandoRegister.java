@@ -1,9 +1,12 @@
-package co.com.mercadolibre.challenge.seguridad.infraestructura.seguridad.auntenticacion.auth;
+package co.com.mercadolibre.challenge.seguridad.aplicacion.comando;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.ArrayList;
+
 
 /**
  * @author Eliana Katherine Guerrero Guerrero - elikateh@gmail.com
@@ -11,9 +14,10 @@ import lombok.NoArgsConstructor;
  */
 @Data
 @Builder
-@AllArgsConstructor
 @NoArgsConstructor
-public class LoginRequest {
+@AllArgsConstructor
+public class ComandoRegister {
     String username;
     String password;
+    ArrayList<ComandoRol> roles;
 }

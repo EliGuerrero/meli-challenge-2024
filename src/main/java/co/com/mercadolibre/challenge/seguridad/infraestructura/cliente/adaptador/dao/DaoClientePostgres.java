@@ -27,18 +27,37 @@ public class DaoClientePostgres implements DaoCliente {
     private ServicioEnmascararDatos servicioEnmascararDatos;
 
     @Override
-    public List<DtoCliente> listarClientes() {
+    public List<DtoCliente> listarClientesParaUsuarioTipoA() {
         return repositorioClientePostgres.findAllByOrderByIdCliente().stream()
                 .map(cliente ->
-                        ClienteBuilder.convertirADominioDto(
+                        ClienteBuilder.convertirADtoParaUsuarioTipoA(
+                                cliente,
+                                servicioEncriptacion.desencriptarValor(cliente.getUserName()),
+                                servicioEncriptacion.desencriptarValor(cliente.getDireccion()),
+                                cliente.getTarjetaEntities().stream().map(
+                                        tarjetaEntity ->
+                                                TarjetaBuilder.convertirADtoParaUsuarioTipoA(
+                                                        tarjetaEntity,
+                                                        servicioEncriptacion.desencriptarValor(tarjetaEntity.getCuentaNumero()),
+                                                        servicioEncriptacion.desencriptarValor(tarjetaEntity.getFecAlta()),
+                                                        servicioEnmascararDatos.enmascaraValor(servicioEncriptacion.desencriptarValor(tarjetaEntity.getCreditCardNum()))
+                                                )
+                                ).collect(Collectors.toList())
+                        )
+                ).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<DtoCliente> listarClientesParaUsuarioTipoB() {
+        return repositorioClientePostgres.findAllByOrderByIdCliente().stream()
+                .map(cliente ->
+                        ClienteBuilder.convertirADtoParaUsuarioTipoB(
                                 cliente,
                                 servicioEncriptacion.desencriptarValor(cliente.getUserName()),
                                 cliente.getTarjetaEntities().stream().map(
                                         tarjetaEntity ->
-                                                TarjetaBuilder.convertirADto(
+                                                TarjetaBuilder.convertirADtoParaUsuarioTipoB(
                                                         tarjetaEntity,
-                                                        servicioEncriptacion.desencriptarValor(tarjetaEntity.getGeoLatitud()),
-                                                        servicioEncriptacion.desencriptarValor(tarjetaEntity.getGeoLongitud()),
                                                         servicioEnmascararDatos.enmascaraValor(servicioEncriptacion.desencriptarValor(tarjetaEntity.getCuentaNumero())),
                                                         servicioEnmascararDatos.enmascaraValor(servicioEncriptacion.desencriptarValor(tarjetaEntity.getCreditCardNum()))
                                                 )

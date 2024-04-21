@@ -39,7 +39,25 @@ public final class ClienteBuilder {
         return clienteEntity;
     }
 
-    public static DtoCliente convertirADominioDto(
+    public static DtoCliente convertirADtoParaUsuarioTipoA(
+            ClienteEntity clienteEntity, String nombreUsuario, String direccion, List<DtoTarjeta> tarjetas
+    ) {
+        DtoCliente dtoCliente = null;
+        if (clienteEntity != null) {
+            dtoCliente = new DtoCliente(clienteEntity.getIdCliente()
+                    , nombreUsuario
+                    , direccion
+                    , clienteEntity.getColorFavorito(), clienteEntity.getFotoDni()
+                    , clienteEntity.getAuto(), clienteEntity.getAutoModelo()
+                    , clienteEntity.getAutoTipo(), clienteEntity.getAutoColor()
+                    , clienteEntity.getAvatar()
+                    , clienteEntity.getFecBirthday(), clienteEntity.getId()
+                    , tarjetas);
+        }
+        return dtoCliente;
+    }
+
+    public static DtoCliente convertirADtoParaUsuarioTipoB(
             ClienteEntity clienteEntity, String nombreUsuario, List<DtoTarjeta> tarjetas
     ) {
         DtoCliente dtoCliente = null;

@@ -1,7 +1,8 @@
-package co.com.mercadolibre.challenge.seguridad.infraestructura.seguridad.auntenticacion.jwt;
+package co.com.mercadolibre.challenge.seguridad.dominio.servicio.seguridad.jwt;
 
 import java.io.IOException;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -17,6 +18,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
+
 /**
  * @author Eliana Katherine Guerrero Guerrero - elikateh@gmail.com
  * @since 18/04/2024
@@ -25,7 +27,9 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
+    @Autowired
     private final JwtService jwtService;
+    @Autowired
     private final UserDetailsService userDetailsService;
 
     @Override
@@ -55,9 +59,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
                 SecurityContextHolder.getContext().setAuthentication(authToken);
             }
-
         }
-
         filterChain.doFilter(request, response);
     }
 

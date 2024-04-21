@@ -1,5 +1,9 @@
-package co.com.mercadolibre.challenge.seguridad.infraestructura.seguridad.auntenticacion.auth;
+package co.com.mercadolibre.challenge.seguridad.infraestructura.seguridad.controlador;
 
+import co.com.mercadolibre.challenge.seguridad.dominio.modelo.dto.DtoToken;
+import co.com.mercadolibre.challenge.seguridad.dominio.servicio.seguridad.AuthService;
+import co.com.mercadolibre.challenge.seguridad.dominio.modelo.dto.DtoLogin;
+import co.com.mercadolibre.challenge.seguridad.aplicacion.comando.ComandoRegister;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,17 +19,17 @@ import lombok.RequiredArgsConstructor;
 @RestController
 @RequestMapping("/auth")
 @RequiredArgsConstructor
-public class AuthController {
+public class ComandoControladorAuth {
 
     private final AuthService authService;
 
     @PostMapping(value = "login")
-    public ResponseEntity<AuthResponse> login(@RequestBody LoginRequest request) {
+    public ResponseEntity<DtoToken> login(@RequestBody DtoLogin request) {
         return ResponseEntity.ok(authService.login(request));
     }
 
     @PostMapping(value = "register")
-    public ResponseEntity<AuthResponse> register(@RequestBody RegisterRequest request) {
+    public ResponseEntity<DtoToken> register(@RequestBody ComandoRegister request) {
         return ResponseEntity.ok(authService.register(request));
     }
 }

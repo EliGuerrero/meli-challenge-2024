@@ -1,4 +1,4 @@
-package co.com.mercadolibre.challenge.seguridad.infraestructura.seguridad.auntenticacion.jwt;
+package co.com.mercadolibre.challenge.seguridad.dominio.servicio.seguridad.jwt;
 
 import java.security.Key;
 import java.util.Date;

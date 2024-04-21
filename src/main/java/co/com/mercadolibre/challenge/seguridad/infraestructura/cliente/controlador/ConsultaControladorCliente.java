@@ -1,6 +1,7 @@
 package co.com.mercadolibre.challenge.seguridad.infraestructura.cliente.controlador;
 
-import co.com.mercadolibre.challenge.seguridad.aplicacion.consulta.ConsultaListarClientes;
+import co.com.mercadolibre.challenge.seguridad.aplicacion.consulta.ConsultaListarClientesParaUsuarioTipoA;
+import co.com.mercadolibre.challenge.seguridad.aplicacion.consulta.ConsultaListarClientesParaUsuarioTipoB;
 import co.com.mercadolibre.challenge.seguridad.dominio.modelo.dto.DtoCliente;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,14 +18,24 @@ import java.util.List;
 @RequestMapping("/api/cliente")
 public class ConsultaControladorCliente {
     @Autowired
-    private final ConsultaListarClientes consultaListarCliente;
+    private final ConsultaListarClientesParaUsuarioTipoA consultaListarClientesParaUsuarioTipoA;
+    @Autowired
+    private final ConsultaListarClientesParaUsuarioTipoB consultaListarClientesParaUsuarioTipoB;
 
-    public ConsultaControladorCliente(ConsultaListarClientes consultaListarCliente) {
-        this.consultaListarCliente = consultaListarCliente;
+    public ConsultaControladorCliente(ConsultaListarClientesParaUsuarioTipoA consultaListarClientesParaUsuarioTipoA
+            , ConsultaListarClientesParaUsuarioTipoB consultaListarClientesParaUsuarioTipoB) {
+        this.consultaListarClientesParaUsuarioTipoA = consultaListarClientesParaUsuarioTipoA;
+        this.consultaListarClientesParaUsuarioTipoB = consultaListarClientesParaUsuarioTipoB;
     }
 
-    @GetMapping()
-    public List<DtoCliente> listarClientes() {
-        return consultaListarCliente.ejecutar();
+
+    @GetMapping("usuario-tipoA")
+    public List<DtoCliente> consultaListarClientesParaUsuarioTipoA() {
+        return consultaListarClientesParaUsuarioTipoA.ejecutar();
+    }
+
+    @GetMapping("usuario-tipoB")
+    public List<DtoCliente> consultaListarClientesParaUsuarioTipoB() {
+        return consultaListarClientesParaUsuarioTipoB.ejecutar();
     }
 }

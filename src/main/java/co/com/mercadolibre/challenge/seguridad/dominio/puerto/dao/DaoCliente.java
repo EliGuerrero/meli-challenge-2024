@@ -9,5 +9,7 @@ import java.util.List;
  * @since 19/04/2024
  */
 public interface DaoCliente {
-    List<DtoCliente> listarClientes();
+    List<DtoCliente> listarClientesParaUsuarioTipoA();
+
+    List<DtoCliente> listarClientesParaUsuarioTipoB();
 }

@@ -1,6 +1,5 @@
 package co.com.mercadolibre.challenge.seguridad.infraestructura.cliente.entidad;
 
-import co.com.mercadolibre.challenge.seguridad.infraestructura.usuario.entidad.TarjetaEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;

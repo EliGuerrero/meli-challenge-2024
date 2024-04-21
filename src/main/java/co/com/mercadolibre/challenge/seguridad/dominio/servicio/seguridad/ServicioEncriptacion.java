@@ -25,12 +25,13 @@ public class ServicioEncriptacion {
     private String secretKey;
     private static final String ALGORITHM = "AES";
     private static final String TRANSFORMATION = "AES/CBC/PKCS5Padding";
+    private static final int BYTES = 16;
 
     public String encriptarValor(String valor) {
         try {
             Cipher cipher = Cipher.getInstance(TRANSFORMATION);
+            IvParameterSpec ivSpec = new IvParameterSpec(new byte[BYTES]);
             SecretKeySpec keySpec = new SecretKeySpec(secretKey.getBytes(), ALGORITHM);
-            IvParameterSpec ivSpec = new IvParameterSpec(new byte[16]);
 
             cipher.init(Cipher.ENCRYPT_MODE, keySpec, ivSpec);
 
@@ -45,8 +46,8 @@ public class ServicioEncriptacion {
     public String desencriptarValor(String valorEncriptado) {
         try {
             Cipher cipher = Cipher.getInstance(TRANSFORMATION);
+            IvParameterSpec ivSpec = new IvParameterSpec(new byte[BYTES]);
             SecretKeySpec keySpec = new SecretKeySpec(secretKey.getBytes(), ALGORITHM);
-            IvParameterSpec ivSpec = new IvParameterSpec(new byte[16]);
 
             cipher.init(Cipher.DECRYPT_MODE, keySpec, ivSpec);
 

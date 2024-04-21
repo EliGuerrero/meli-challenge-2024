@@ -13,9 +13,9 @@ import java.time.Duration;
  */
 @Configuration
 public class ConfiguracionRestTemplate {
-
+    private static final Long MILISEGUNDOS= 300000l;
     @Bean
     public RestTemplate restTemplate(RestTemplateBuilder builder) {
-        return builder.setConnectTimeout(Duration.ofMillis(300000)).build();
+        return builder.setConnectTimeout(Duration.ofMillis(MILISEGUNDOS)).build();
     }
 }

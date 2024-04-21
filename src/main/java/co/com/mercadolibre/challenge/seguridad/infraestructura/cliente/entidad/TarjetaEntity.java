@@ -1,4 +1,4 @@
-package co.com.mercadolibre.challenge.seguridad.infraestructura.usuario.entidad;
+package co.com.mercadolibre.challenge.seguridad.infraestructura.cliente.entidad;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

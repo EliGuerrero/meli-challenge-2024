@@ -1,4 +1,4 @@
-package co.com.mercadolibre.challenge.seguridad.infraestructura.seguridad.auntenticacion.auth;
+package co.com.mercadolibre.challenge.seguridad.dominio.modelo.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,8 +11,9 @@ import lombok.NoArgsConstructor;
  */
 @Data
 @Builder
-@NoArgsConstructor
 @AllArgsConstructor
-public class AuthResponse {
-    String token;
+@NoArgsConstructor
+public class DtoLogin {
+    private String username;
+    private String password;
 }

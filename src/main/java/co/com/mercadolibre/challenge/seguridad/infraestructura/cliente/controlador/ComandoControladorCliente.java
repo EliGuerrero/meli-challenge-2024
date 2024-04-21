@@ -1,7 +1,7 @@
 package co.com.mercadolibre.challenge.seguridad.infraestructura.cliente.controlador;
 
 import co.com.mercadolibre.challenge.seguridad.aplicacion.comando.ComandoCliente;
-import co.com.mercadolibre.challenge.seguridad.aplicacion.manejador.cliente.ManejadorAgregarCliente;
+import co.com.mercadolibre.challenge.seguridad.aplicacion.manejador.ManejadorAgregarCliente;
 import co.com.mercadolibre.challenge.seguridad.infraestructura.cliente.adaptador.repositorio.RepositorioClienteRest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,7 +23,7 @@ public class ComandoControladorCliente {
     private RepositorioClienteRest repositorioClienteRest;
 
     @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping()
+    @PostMapping
     public void agregar() {
         List<ComandoCliente> response = repositorioClienteRest.consumirEndpoint();
         response.forEach(cliente -> manejadorAgregarCliente.ejecutar(cliente));

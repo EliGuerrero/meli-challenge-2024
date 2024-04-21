@@ -2,8 +2,12 @@ package co.com.mercadolibre.challenge.seguridad.infraestructura.cliente.builder;
 
 import co.com.mercadolibre.challenge.seguridad.dominio.modelo.dto.DtoTarjeta;
 import co.com.mercadolibre.challenge.seguridad.dominio.modelo.entidad.Tarjeta;
-import co.com.mercadolibre.challenge.seguridad.infraestructura.usuario.entidad.TarjetaEntity;
+import co.com.mercadolibre.challenge.seguridad.infraestructura.cliente.entidad.TarjetaEntity;
 
+/**
+ * @author Eliana Katherine Guerrero Guerrero - elikateh@gmail.com
+ * @since 19/04/2024
+ */
 public final class TarjetaBuilder {
     private TarjetaBuilder() {
         throw new IllegalStateException("Utility class");
@@ -25,7 +29,24 @@ public final class TarjetaBuilder {
         return tarjetaEntity;
     }
 
-    public static DtoTarjeta convertirADto(TarjetaEntity tarjetaEntity, String latitud, String longitud, String cuentaNumero, String creditCardNum) {
+    public static DtoTarjeta convertirADtoParaUsuarioTipoA(TarjetaEntity tarjetaEntity, String cuentaNumero, String fecAlta, String creditCardNum) {
+        DtoTarjeta dtoTarjeta = null;
+        if (tarjetaEntity != null) {
+            dtoTarjeta = new DtoTarjeta();
+            dtoTarjeta.setIdTarjeta(tarjetaEntity.getIdTarjeta());
+            dtoTarjeta.setCodigoZip(tarjetaEntity.getCodigoZip());
+            dtoTarjeta.setCreditCardNum(creditCardNum);
+            dtoTarjeta.setCantidadComprasRealizadas(tarjetaEntity.getCantidadComprasRealizadas());
+            dtoTarjeta.setFecAlta(fecAlta);
+            dtoTarjeta.setGeoLatitud(tarjetaEntity.getGeoLatitud());
+            dtoTarjeta.setGeoLongitud(tarjetaEntity.getGeoLongitud());
+            dtoTarjeta.setCuentaNumero(cuentaNumero);
+            dtoTarjeta.setIp(tarjetaEntity.getIp());
+        }
+        return dtoTarjeta;
+    }
+
+    public static DtoTarjeta convertirADtoParaUsuarioTipoB(TarjetaEntity tarjetaEntity, String cuentaNumero, String creditCardNum) {
         DtoTarjeta dtoTarjeta = null;
         if (tarjetaEntity != null) {
             dtoTarjeta = new DtoTarjeta();
@@ -34,8 +55,8 @@ public final class TarjetaBuilder {
             dtoTarjeta.setCreditCardNum(creditCardNum);
             dtoTarjeta.setCantidadComprasRealizadas(tarjetaEntity.getCantidadComprasRealizadas());
             dtoTarjeta.setFecAlta(tarjetaEntity.getFecAlta());
-            dtoTarjeta.setGeoLatitud(latitud);
-            dtoTarjeta.setGeoLongitud(longitud);
+            dtoTarjeta.setGeoLatitud(tarjetaEntity.getGeoLatitud());
+            dtoTarjeta.setGeoLongitud(tarjetaEntity.getGeoLongitud());
             dtoTarjeta.setCuentaNumero(cuentaNumero);
             dtoTarjeta.setIp(tarjetaEntity.getIp());
         }

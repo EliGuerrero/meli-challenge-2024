@@ -1,6 +1,8 @@
 package co.com.mercadolibre.challenge.seguridad.infraestructura.cliente.builder;
 
 import co.com.mercadolibre.challenge.seguridad.dominio.modelo.dto.DtoCliente;
+import co.com.mercadolibre.challenge.seguridad.dominio.modelo.dto.DtoInfoCliente;
+import co.com.mercadolibre.challenge.seguridad.dominio.modelo.dto.DtoInfoTarjeta;
 import co.com.mercadolibre.challenge.seguridad.dominio.modelo.dto.DtoTarjeta;
 import co.com.mercadolibre.challenge.seguridad.dominio.modelo.entidad.Cliente;
 import co.com.mercadolibre.challenge.seguridad.infraestructura.cliente.entidad.ClienteEntity;
@@ -39,7 +41,21 @@ public final class ClienteBuilder {
         return clienteEntity;
     }
 
-    public static DtoCliente convertirADtoParaUsuarioTipoA(
+    public static DtoInfoCliente convertirADtoParaUsuarioTipoA(
+            ClienteEntity clienteEntity, String nombreUsuario, String direccion, List<DtoInfoTarjeta> tarjetas
+    ) {
+        DtoInfoCliente dtoInfoCliente = null;
+        if (clienteEntity != null) {
+            dtoInfoCliente = new DtoInfoCliente(clienteEntity.getIdCliente()
+                    , nombreUsuario
+                    , direccion
+                    , clienteEntity.getFecBirthday()
+                    , tarjetas);
+        }
+        return dtoInfoCliente;
+    }
+
+    public static DtoCliente convertirADtoParaUsuarioTipoB(
             ClienteEntity clienteEntity, String nombreUsuario, String direccion, List<DtoTarjeta> tarjetas
     ) {
         DtoCliente dtoCliente = null;
@@ -47,29 +63,6 @@ public final class ClienteBuilder {
             dtoCliente = new DtoCliente(clienteEntity.getIdCliente()
                     , nombreUsuario
                     , direccion
-                    , clienteEntity.getColorFavorito(), clienteEntity.getFotoDni()
-                    , clienteEntity.getAuto(), clienteEntity.getAutoModelo()
-                    , clienteEntity.getAutoTipo(), clienteEntity.getAutoColor()
-                    , clienteEntity.getAvatar()
-                    , clienteEntity.getFecBirthday(), clienteEntity.getId()
-                    , tarjetas);
-        }
-        return dtoCliente;
-    }
-
-    public static DtoCliente convertirADtoParaUsuarioTipoB(
-            ClienteEntity clienteEntity, String nombreUsuario, List<DtoTarjeta> tarjetas
-    ) {
-        DtoCliente dtoCliente = null;
-        if (clienteEntity != null) {
-            dtoCliente = new DtoCliente(clienteEntity.getIdCliente()
-                    , nombreUsuario
-                    , clienteEntity.getDireccion()
-                    , clienteEntity.getColorFavorito(), clienteEntity.getFotoDni()
-                    , clienteEntity.getAuto(), clienteEntity.getAutoModelo()
-                    , clienteEntity.getAutoTipo(), clienteEntity.getAutoColor()
-                    , clienteEntity.getAvatar()
-                    , clienteEntity.getFecBirthday(), clienteEntity.getId()
                     , tarjetas);
         }
         return dtoCliente;

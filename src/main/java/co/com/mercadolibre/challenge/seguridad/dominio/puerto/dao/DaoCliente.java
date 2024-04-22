@@ -1,6 +1,7 @@
 package co.com.mercadolibre.challenge.seguridad.dominio.puerto.dao;
 
 import co.com.mercadolibre.challenge.seguridad.dominio.modelo.dto.DtoCliente;
+import co.com.mercadolibre.challenge.seguridad.dominio.modelo.dto.DtoInfoCliente;
 
 import java.util.List;
 
@@ -9,7 +10,7 @@ import java.util.List;
  * @since 19/04/2024
  */
 public interface DaoCliente {
-    List<DtoCliente> listarClientesParaUsuarioTipoA();
+    List<DtoInfoCliente> listarClientesParaUsuarioTipoA();
 
     List<DtoCliente> listarClientesParaUsuarioTipoB();
 }

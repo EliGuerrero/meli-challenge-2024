@@ -52,7 +52,7 @@ public class SecurityConfig {
                     auth.requestMatchers("/api/cliente").hasRole("USUARIO_TIPOA");
                     auth.requestMatchers("/api/cliente").hasRole("USUARIO_TIPOB");
                     auth.requestMatchers("/api/cliente/usuario-tipoA").hasRole("USUARIO_TIPOA");
-                    auth.requestMatchers("/api/cliente/usuario-tipoA").hasRole("USUARIO_TIPOB");
+                    auth.requestMatchers("/api/cliente/usuario-tipoB").hasRole("USUARIO_TIPOB");
                     auth.anyRequest().authenticated();
                 })
                 .logout(logout -> logout.permitAll())

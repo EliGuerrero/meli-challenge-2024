@@ -3,6 +3,7 @@ package co.com.mercadolibre.challenge.seguridad.infraestructura.cliente.controla
 import co.com.mercadolibre.challenge.seguridad.aplicacion.consulta.ConsultaListarClientesParaUsuarioTipoA;
 import co.com.mercadolibre.challenge.seguridad.aplicacion.consulta.ConsultaListarClientesParaUsuarioTipoB;
 import co.com.mercadolibre.challenge.seguridad.dominio.modelo.dto.DtoCliente;
+import co.com.mercadolibre.challenge.seguridad.dominio.modelo.dto.DtoInfoCliente;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,7 +31,7 @@ public class ConsultaControladorCliente {
 
 
     @GetMapping("usuario-tipoA")
-    public List<DtoCliente> consultaListarClientesParaUsuarioTipoA() {
+    public List<DtoInfoCliente> consultaListarClientesParaUsuarioTipoA() {
         return consultaListarClientesParaUsuarioTipoA.ejecutar();
     }
 

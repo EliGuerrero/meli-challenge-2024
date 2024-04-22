@@ -1,5 +1,6 @@
 package co.com.mercadolibre.challenge.seguridad.infraestructura.cliente.builder;
 
+import co.com.mercadolibre.challenge.seguridad.dominio.modelo.dto.DtoInfoTarjeta;
 import co.com.mercadolibre.challenge.seguridad.dominio.modelo.dto.DtoTarjeta;
 import co.com.mercadolibre.challenge.seguridad.dominio.modelo.entidad.Tarjeta;
 import co.com.mercadolibre.challenge.seguridad.infraestructura.cliente.entidad.TarjetaEntity;
@@ -29,36 +30,24 @@ public final class TarjetaBuilder {
         return tarjetaEntity;
     }
 
-    public static DtoTarjeta convertirADtoParaUsuarioTipoA(TarjetaEntity tarjetaEntity, String cuentaNumero, String fecAlta, String creditCardNum) {
-        DtoTarjeta dtoTarjeta = null;
+    public static DtoInfoTarjeta convertirADtoParaUsuarioTipoA(TarjetaEntity tarjetaEntity, String creditCardNum
+            , String cuentaNumero) {
+        DtoInfoTarjeta dtoInfoTarjeta = null;
         if (tarjetaEntity != null) {
-            dtoTarjeta = new DtoTarjeta();
-            dtoTarjeta.setIdTarjeta(tarjetaEntity.getIdTarjeta());
-            dtoTarjeta.setCodigoZip(tarjetaEntity.getCodigoZip());
-            dtoTarjeta.setCreditCardNum(creditCardNum);
-            dtoTarjeta.setCantidadComprasRealizadas(tarjetaEntity.getCantidadComprasRealizadas());
-            dtoTarjeta.setFecAlta(fecAlta);
-            dtoTarjeta.setGeoLatitud(tarjetaEntity.getGeoLatitud());
-            dtoTarjeta.setGeoLongitud(tarjetaEntity.getGeoLongitud());
-            dtoTarjeta.setCuentaNumero(cuentaNumero);
-            dtoTarjeta.setIp(tarjetaEntity.getIp());
+            dtoInfoTarjeta = new DtoInfoTarjeta(
+                    tarjetaEntity.getIdTarjeta(),
+                    creditCardNum,
+                    cuentaNumero,
+                    tarjetaEntity.getCantidadComprasRealizadas());
         }
-        return dtoTarjeta;
+        return dtoInfoTarjeta;
     }
 
-    public static DtoTarjeta convertirADtoParaUsuarioTipoB(TarjetaEntity tarjetaEntity, String cuentaNumero, String creditCardNum) {
+    public static DtoTarjeta convertirADtoParaUsuarioTipoB(TarjetaEntity tarjetaEntity) {
         DtoTarjeta dtoTarjeta = null;
         if (tarjetaEntity != null) {
-            dtoTarjeta = new DtoTarjeta();
-            dtoTarjeta.setIdTarjeta(tarjetaEntity.getIdTarjeta());
-            dtoTarjeta.setCodigoZip(tarjetaEntity.getCodigoZip());
-            dtoTarjeta.setCreditCardNum(creditCardNum);
-            dtoTarjeta.setCantidadComprasRealizadas(tarjetaEntity.getCantidadComprasRealizadas());
-            dtoTarjeta.setFecAlta(tarjetaEntity.getFecAlta());
-            dtoTarjeta.setGeoLatitud(tarjetaEntity.getGeoLatitud());
-            dtoTarjeta.setGeoLongitud(tarjetaEntity.getGeoLongitud());
-            dtoTarjeta.setCuentaNumero(cuentaNumero);
-            dtoTarjeta.setIp(tarjetaEntity.getIp());
+            dtoTarjeta = new DtoTarjeta(tarjetaEntity.getIdTarjeta(),
+                    tarjetaEntity.getCantidadComprasRealizadas());
         }
         return dtoTarjeta;
     }

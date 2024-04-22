@@ -1,6 +1,7 @@
 package co.com.mercadolibre.challenge.seguridad.infraestructura.cliente.adaptador.dao;
 
 import co.com.mercadolibre.challenge.seguridad.dominio.modelo.dto.DtoCliente;
+import co.com.mercadolibre.challenge.seguridad.dominio.modelo.dto.DtoInfoCliente;
 import co.com.mercadolibre.challenge.seguridad.dominio.puerto.dao.DaoCliente;
 import co.com.mercadolibre.challenge.seguridad.infraestructura.cliente.adaptador.repositorio.RepositorioClientePostgres;
 import co.com.mercadolibre.challenge.seguridad.infraestructura.cliente.builder.ClienteBuilder;
@@ -27,7 +28,7 @@ public class DaoClientePostgres implements DaoCliente {
     private ServicioEnmascararDatos servicioEnmascararDatos;
 
     @Override
-    public List<DtoCliente> listarClientesParaUsuarioTipoA() {
+    public List<DtoInfoCliente> listarClientesParaUsuarioTipoA() {
         return repositorioClientePostgres.findAllByOrderByIdCliente().stream()
                 .map(cliente ->
                         ClienteBuilder.convertirADtoParaUsuarioTipoA(
@@ -39,7 +40,6 @@ public class DaoClientePostgres implements DaoCliente {
                                                 TarjetaBuilder.convertirADtoParaUsuarioTipoA(
                                                         tarjetaEntity,
                                                         servicioEncriptacion.desencriptarValor(tarjetaEntity.getCuentaNumero()),
-                                                        servicioEncriptacion.desencriptarValor(tarjetaEntity.getFecAlta()),
                                                         servicioEnmascararDatos.enmascaraValor(servicioEncriptacion.desencriptarValor(tarjetaEntity.getCreditCardNum()))
                                                 )
                                 ).collect(Collectors.toList())
@@ -54,12 +54,11 @@ public class DaoClientePostgres implements DaoCliente {
                         ClienteBuilder.convertirADtoParaUsuarioTipoB(
                                 cliente,
                                 servicioEncriptacion.desencriptarValor(cliente.getUserName()),
+                                servicioEncriptacion.desencriptarValor(cliente.getDireccion()),
                                 cliente.getTarjetaEntities().stream().map(
                                         tarjetaEntity ->
                                                 TarjetaBuilder.convertirADtoParaUsuarioTipoB(
-                                                        tarjetaEntity,
-                                                        servicioEnmascararDatos.enmascaraValor(servicioEncriptacion.desencriptarValor(tarjetaEntity.getCuentaNumero())),
-                                                        servicioEnmascararDatos.enmascaraValor(servicioEncriptacion.desencriptarValor(tarjetaEntity.getCreditCardNum()))
+                                                        tarjetaEntity
                                                 )
                                 ).collect(Collectors.toList())
                         )

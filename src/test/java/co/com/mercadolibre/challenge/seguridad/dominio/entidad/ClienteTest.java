@@ -12,8 +12,6 @@ import org.springframework.boot.test.context.SpringBootTest;
  */
 @SpringBootTest
 class ClienteTest {
-
-private static final String SE_DEBE_INGRESAR_EL_NOMBRE = "Se debe ingresar el nombre del cliente.";
     @DisplayName("Debe fallar al crear un cliente con username nulo")
     @Test
     void crearClienteFallidoSinUserNameTest() {

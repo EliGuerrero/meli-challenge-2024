@@ -1,6 +1,6 @@
 package co.com.mercadolibre.challenge.seguridad.aplicacion.consulta;
 
-import co.com.mercadolibre.challenge.seguridad.dominio.modelo.dto.DtoCliente;
+import co.com.mercadolibre.challenge.seguridad.dominio.modelo.dto.DtoInfoCliente;
 import co.com.mercadolibre.challenge.seguridad.dominio.puerto.dao.DaoCliente;
 import org.springframework.stereotype.Component;
 
@@ -19,7 +19,7 @@ public class ConsultaListarClientesParaUsuarioTipoA {
         this.daoCliente = daoCliente;
     }
 
-    public List<DtoCliente> ejecutar() {
+    public List<DtoInfoCliente> ejecutar() {
         return daoCliente.listarClientesParaUsuarioTipoA();
     }
 }

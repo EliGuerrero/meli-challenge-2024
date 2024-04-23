@@ -12,7 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class SeguridadApplication {
 
-	private static Logger LOGGER = LoggerFactory.getLogger(Cliente.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(Cliente.class);
 
 	public static void main(String[] args) {
 		SpringApplication.run(SeguridadApplication.class, args);
